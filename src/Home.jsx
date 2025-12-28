@@ -16,7 +16,7 @@ const Home = () => {
           </p>
 
           <p className="about-text">
-            Outside of work, I like to ski, play chess, and play soccer.
+            Outside of work, I like to ski (shoutout to whistler ifykyk), play chess, and soccer.
           </p>
 
           <p className="about-email">
