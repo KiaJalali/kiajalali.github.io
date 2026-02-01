@@ -12,7 +12,7 @@ const Home = () => {
           </p>
 
           <p className="about-text">
-            I'm starting my new job as a full-time software engineer at <a href="https://www.bloomberg.com" target="_blank" rel="noopener noreferrer">Bloomberg</a> this January. I'm mostly interested in distributed systems, backend and infrastructure work.
+            I'm mostly interested in distributed systems, backend and infrastructure work.
           </p>
 
           <p className="about-text">
