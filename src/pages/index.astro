@@ -18,8 +18,9 @@ const experience = [
     </div>
     <div class="profile-content">
       <section class="intro" aria-label="About">
-        <p>I'm a software engineer at Google, working on YouTube Creator Studio. Previously, I built data lakehouse infrastructure at Bloomberg.</p>
-        <p>I'm interested in distributed systems, backend engineering, and infrastructure. I studied computer science at <a href="https://www.sfu.ca">Simon Fraser University</a>.</p>
+        <p>I'm a software engineer on YouTube Creator Studio at Google.</p>
+        <p>Before Google, I worked on Bloomberg's data lakehouse, building infrastructure for storing and querying datasets with Iceberg, Trino, and Spark. Earlier, I worked on ad attribution at Snap and research infrastructure at DRW.</p>
+        <p>My interests are mostly in storage, distributed systems, and performance engineering. I studied computer science at <a href="https://www.sfu.ca">Simon Fraser University</a>.</p>
       </section>
       <section class="experience" aria-labelledby="work-title">
         <h2 id="work-title">Experience</h2>
@@ -27,7 +28,6 @@ const experience = [
           {experience.map((item) => <article class="experience-row"><div class="company-line"><a class="company" href={item.url}>{item.company}</a><span class:list={['role', { current: item.role === 'Current' }]}>{item.role === 'Current' && <span class="status" aria-hidden="true" />}{item.role}</span></div>{item.team && <p class="team">{item.team}</p>}{item.note && <p class="work-note">{item.note}</p>}</article>)}
         </div>
       </section>
-      <section class="outside" aria-labelledby="outside-title"><h2 id="outside-title">Outside work</h2><p>Outside of work, I ski, play chess, and play soccer. I head to Whistler whenever I get the chance.</p></section>
       <div class="contact-line"><a href="mailto:kia.jjalali@gmail.com">kia.jjalali@gmail.com</a></div>
     </div>
   </main>

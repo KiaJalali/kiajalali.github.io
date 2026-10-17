@@ -1,7 +1,7 @@
 ---
 import Arrow from "../components/Arrow.astro";
 import '../styles/global.css';
-const { title = 'Kia Jalali — Software Engineer at Google', description = 'Software engineer at Google. Previously worked on data lakehouse infrastructure at Bloomberg. Interested in distributed systems, backend engineering, and infrastructure.' } = Astro.props;
+const { title = 'Kia Jalali — Software Engineer at Google', description = 'Software engineer at Google. Previously worked on data lakehouse infrastructure at Bloomberg. Interested in storage, distributed systems, and performance engineering.' } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const person = { '@context': 'https://schema.org', '@type': 'Person', name: 'Kia Jalali', url: 'https://kiajalali.com', email: 'kia.jjalali@gmail.com', jobTitle: 'Software Engineer', worksFor: { '@type': 'Organization', name: 'Google' }, alumniOf: { '@type': 'EducationalOrganization', name: 'Simon Fraser University' }, sameAs: ['https://www.linkedin.com/in/kiajalali', 'https://github.com/KiaJalali'] };
 ---
