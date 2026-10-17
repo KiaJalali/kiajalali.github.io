@@ -8,6 +8,10 @@ const Home = () => {
           </p>
 
           <p className="about-text">
+            I'm at <a href="https://www.google.com" target="_blank" rel="noopener noreferrer">Google</a> now. Before that, I worked on data lakehouse stuff at <a href="https://www.bloomberg.com" target="_blank" rel="noopener noreferrer">Bloomberg</a>.
+          </p>
+
+          <p className="about-text">
             I interned at <a href="https://www.snap.com" target="_blank" rel="noopener noreferrer">Snapchat</a>, 2x Amazon (<a href="https://github.com/alexa/avs-device-sdk" target="_blank" rel="noopener noreferrer">Alexa C++ SDK</a> and <a href="https://aws.amazon.com" target="_blank" rel="noopener noreferrer">AWS</a>), <a href="https://drw.com" target="_blank" rel="noopener noreferrer">DRW Trading</a>, and <a href="https://www.sap.com" target="_blank" rel="noopener noreferrer">SAP</a>.
           </p>
 
