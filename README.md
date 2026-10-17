@@ -1,6 +1,6 @@
 # kiajalali.com
 
-A small static personal site with a compact, text-first personal homepage, built with Astro. No client-side framework or JavaScript is shipped.
+A small static personal site with a compact, text-first personal homepage, built with Astro. No client-side framework is shipped. A small inline script applies the system theme before paint and remembers manual light/dark choices in localStorage. The site also follows system dark mode without JavaScript.
 
 ## Development
 

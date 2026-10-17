@@ -1,6 +1,7 @@
 ---
 import Arrow from "../components/Arrow.astro";
 import '../styles/global.css';
+import themeScript from '../scripts/theme.js?raw';
 const { title = 'Kia Jalali — Software Engineer at Google', description = 'Software engineer at Google. Previously worked on data lakehouse infrastructure at Bloomberg. Interested in storage, distributed systems, and performance engineering.' } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const person = { '@context': 'https://schema.org', '@type': 'Person', name: 'Kia Jalali', url: 'https://kiajalali.com', email: 'kia.jjalali@gmail.com', jobTitle: 'Software Engineer', worksFor: { '@type': 'Organization', name: 'Google' }, alumniOf: { '@type': 'EducationalOrganization', name: 'Simon Fraser University' }, sameAs: ['https://www.linkedin.com/in/kiajalali', 'https://github.com/KiaJalali'] };
@@ -11,6 +12,7 @@ const person = { '@context': 'https://schema.org', '@type': 'Person', name: 'Kia
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#ffffff" />
+    <script is:inline set:html={themeScript} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -29,7 +31,7 @@ const person = { '@context': 'https://schema.org', '@type': 'Person', name: 'Kia
     <a class="skip-link" href="#main">skip to content</a>
     <div class="shell">
       <header>
-        <div class="site-name"><a href="/">kia jalali</a><span class="site-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span></div>
+        <div class="site-name"><a href="/">kia jalali</a><div class="header-tools"><button id="theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false" hidden><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true" fill="none"><circle cx="8" cy="8" r="5.5" stroke="currentColor"/><path d="M8 2.5a5.5 5.5 0 0 1 0 11Z" fill="currentColor"/></svg><span class="theme-label-light">light</span><span class="theme-label-dark">dark</span></button><span class="site-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span></div></div>
         <nav aria-label="Main navigation">
           <a href="/" aria-current={Astro.url.pathname === '/' ? 'page' : undefined}>index</a>
           <span aria-hidden="true">/</span>
