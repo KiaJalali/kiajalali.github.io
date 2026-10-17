@@ -1,37 +1,34 @@
 ---
-import Arrow from "../components/Arrow.astro";
 import Layout from '../layouts/Layout.astro';
-const stops = [
-  { name: 'Google', detail: 'where i am now', url: 'https://www.google.com' },
-  { name: 'Bloomberg', detail: 'data lakehouse stuff', url: 'https://www.bloomberg.com' },
-  { name: 'Snapchat', detail: 'internship', url: 'https://www.snap.com' },
-  { name: 'Amazon', detail: '2x · Alexa C++ SDK + AWS', url: 'https://aws.amazon.com' },
-  { name: 'DRW Trading', detail: 'internship', url: 'https://drw.com' },
-  { name: 'SAP', detail: 'internship', url: 'https://www.sap.com' },
+const experience = [
+  { company: 'Google', team: 'YouTube · Creator Studio', note: '', role: 'current', url: 'https://www.google.com' },
+  { company: 'Bloomberg', team: 'Core Data', note: 'Data lakehouse infrastructure.', role: 'previous', url: 'https://www.bloomberg.com' },
+  { company: 'Snap', team: 'Monetization · Ad Attribution', note: '', role: 'intern', url: 'https://www.snap.com' },
+  { company: 'Amazon', team: 'Alexa C++ SDK / AWS', note: '', role: 'intern ×2', url: 'https://aws.amazon.com' },
+  { company: 'DRW', team: 'Event Driven Trading · R&D', note: '', role: 'intern', url: 'https://drw.com' },
+  { company: 'SAP', team: '', note: '', role: 'intern', url: 'https://www.sap.com' },
 ];
 ---
 <Layout>
-  <main id="main">
-    <section class="masthead" aria-labelledby="name">
-      <div class="masthead-meta"><span>software engineer</span><span>somewhere between systems &amp; side quests</span></div>
-      <h1 id="name">kia jalali<span class="name-dot">.</span></h1>
-      <div class="under-name"><span>a small corner of the internet.</span><a href="mailto:kia.jjalali@gmail.com">say hey <Arrow /></a></div>
-    </section>
-    <div class="body-grid">
-      <aside class="bio" aria-labelledby="bio-title">
-        <h2 id="bio-title" class="small-label">a bit about me</h2>
-        <p class="bio-lead">I like figuring out<br />how things <em>work.</em></p>
-        <p>Mostly distributed systems, backend and infrastructure. I studied computer science at <a href="https://www.sfu.ca">Simon Fraser University</a>.</p>
-        <div class="off-clock"><span class="small-label">when the laptop's closed</span><p>Skiing (shoutout to whistler ifykyk), chess, and soccer.</p></div>
-      </aside>
-      <section class="work" aria-labelledby="work-title">
-        <div class="work-heading"><h2 id="work-title" class="small-label">a few places along the way</h2><span class="small-label">01—06</span></div>
-        <div class="work-list">
-          {stops.map((stop, index) => <a class:list={['work-row', { current: index === 0 }]} href={stop.url}><span class="row-index">0{index + 1}</span><span class="row-content"><span class="company">{stop.name}</span><span class="work-detail">{stop.detail}</span></span><span class="row-end">{index === 0 ? <span class="now-tag">now</span> : <Arrow />}</span></a>)}
-        </div>
-        <div class="work-note"><span>the longer version?</span><a href="/contact/">ask for my resume <Arrow /></a></div>
-      </section>
+  <main id="main" class="profile">
+    <div class="identity">
+      <h1>Kia Jalali</h1>
+      <p>Software engineer</p>
+      <a class="identity-email" href="mailto:kia.jjalali@gmail.com">email me</a>
     </div>
-    <section class="hello" aria-label="Get in touch"><div><p class="small-label">no contact form. just an email.</p><a class="hello-title" href="mailto:kia.jjalali@gmail.com">say hey<Arrow /></a></div><a class="email-address" href="mailto:kia.jjalali@gmail.com">kia.jjalali@gmail.com</a></section>
+    <div class="profile-content">
+      <section class="intro" aria-label="About">
+        <p>I'm at Google, working on YouTube Creator Studio. Before that, I worked on data lakehouse infrastructure at Bloomberg.</p>
+        <p>Mostly interested in distributed systems, backend and infrastructure. Studied computer science at <a href="https://www.sfu.ca">SFU</a>.</p>
+      </section>
+      <section class="experience" aria-labelledby="work-title">
+        <h2 id="work-title">Work</h2>
+        <div class="experience-list">
+          {experience.map((item) => <article class="experience-row"><div class="company-line"><a class="company" href={item.url}>{item.company}</a><span class:list={['role', { current: item.role === 'current' }]}>{item.role === 'current' && <span class="status" aria-hidden="true" />}{item.role}</span></div>{item.team && <p class="team">{item.team}</p>}{item.note && <p class="work-note">{item.note}</p>}</article>)}
+        </div>
+      </section>
+      <section class="outside" aria-labelledby="outside-title"><h2 id="outside-title">Outside work</h2><p>Skiing, chess, soccer. Usually Whistler when I get the chance.</p></section>
+      <div class="contact-line"><a href="mailto:kia.jjalali@gmail.com">kia.jjalali@gmail.com</a></div>
+    </div>
   </main>
 </Layout>
