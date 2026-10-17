@@ -1,12 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
 const experience = [
-  { company: 'Google', team: 'YouTube · Creator Studio', note: '', role: 'current', url: 'https://www.google.com' },
-  { company: 'Bloomberg', team: 'Core Data', note: 'Data lakehouse infrastructure.', role: 'previous', url: 'https://www.bloomberg.com' },
-  { company: 'Snap', team: 'Monetization · Ad Attribution', note: '', role: 'intern', url: 'https://www.snap.com' },
-  { company: 'Amazon', team: 'Alexa C++ SDK / AWS', note: '', role: 'intern ×2', url: 'https://aws.amazon.com' },
-  { company: 'DRW', team: 'Event Driven Trading · R&D', note: '', role: 'intern', url: 'https://drw.com' },
-  { company: 'SAP', team: '', note: '', role: 'intern', url: 'https://www.sap.com' },
+  { company: 'Google', team: 'YouTube · Creator Studio', note: '', role: 'Current', url: 'https://www.google.com' },
+  { company: 'Bloomberg', team: 'Core Data', note: 'Data lakehouse infrastructure.', role: 'Previous', url: 'https://www.bloomberg.com' },
+  { company: 'Snap', team: 'Monetization · Ad Attribution', note: '', role: 'Internship', url: 'https://www.snap.com' },
+  { company: 'Amazon', team: 'Alexa C++ SDK / AWS', note: '', role: 'Two internships', url: 'https://aws.amazon.com' },
+  { company: 'DRW', team: 'Event Driven Trading · R&D', note: '', role: 'Internship', url: 'https://drw.com' },
+  { company: 'SAP', team: 'Internal Tooling', note: '', role: 'Internship', url: 'https://www.sap.com' },
 ];
 ---
 <Layout>
@@ -14,20 +14,20 @@ const experience = [
     <div class="identity">
       <h1>Kia Jalali</h1>
       <p>Software engineer</p>
-      <a class="identity-email" href="mailto:kia.jjalali@gmail.com">email me</a>
+      <a class="identity-email" href="mailto:kia.jjalali@gmail.com">Get in touch</a>
     </div>
     <div class="profile-content">
       <section class="intro" aria-label="About">
-        <p>I'm at Google, working on YouTube Creator Studio. Before that, I worked on data lakehouse infrastructure at Bloomberg.</p>
-        <p>Mostly interested in distributed systems, backend and infrastructure. Studied computer science at <a href="https://www.sfu.ca">SFU</a>.</p>
+        <p>I'm a software engineer at Google, working on YouTube Creator Studio. Previously, I built data lakehouse infrastructure at Bloomberg.</p>
+        <p>I'm interested in distributed systems, backend engineering, and infrastructure. I studied computer science at <a href="https://www.sfu.ca">Simon Fraser University</a>.</p>
       </section>
       <section class="experience" aria-labelledby="work-title">
-        <h2 id="work-title">Work</h2>
+        <h2 id="work-title">Experience</h2>
         <div class="experience-list">
-          {experience.map((item) => <article class="experience-row"><div class="company-line"><a class="company" href={item.url}>{item.company}</a><span class:list={['role', { current: item.role === 'current' }]}>{item.role === 'current' && <span class="status" aria-hidden="true" />}{item.role}</span></div>{item.team && <p class="team">{item.team}</p>}{item.note && <p class="work-note">{item.note}</p>}</article>)}
+          {experience.map((item) => <article class="experience-row"><div class="company-line"><a class="company" href={item.url}>{item.company}</a><span class:list={['role', { current: item.role === 'Current' }]}>{item.role === 'Current' && <span class="status" aria-hidden="true" />}{item.role}</span></div>{item.team && <p class="team">{item.team}</p>}{item.note && <p class="work-note">{item.note}</p>}</article>)}
         </div>
       </section>
-      <section class="outside" aria-labelledby="outside-title"><h2 id="outside-title">Outside work</h2><p>Skiing, chess, soccer. Usually Whistler when I get the chance.</p></section>
+      <section class="outside" aria-labelledby="outside-title"><h2 id="outside-title">Outside work</h2><p>Outside of work, I ski, play chess, and play soccer. I head to Whistler whenever I get the chance.</p></section>
       <div class="contact-line"><a href="mailto:kia.jjalali@gmail.com">kia.jjalali@gmail.com</a></div>
     </div>
   </main>
