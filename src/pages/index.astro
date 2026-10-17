@@ -1,12 +1,13 @@
 ---
+import Arrow from "../components/Arrow.astro";
 import Layout from '../layouts/Layout.astro';
 const stops = [
-  { name: 'Google', detail: 'where i am now', label: 'now', url: 'https://www.google.com' },
-  { name: 'Bloomberg', detail: 'data lakehouse stuff', label: 'before', url: 'https://www.bloomberg.com' },
-  { name: 'Snapchat', detail: 'internship', label: 'before', url: 'https://www.snap.com' },
-  { name: 'Amazon', detail: '2x · Alexa C++ SDK + AWS', label: 'before', url: 'https://aws.amazon.com' },
-  { name: 'DRW Trading', detail: 'internship', label: 'before', url: 'https://drw.com' },
-  { name: 'SAP', detail: 'internship', label: 'before', url: 'https://www.sap.com' },
+  { name: 'Google', detail: 'where i am now', url: 'https://www.google.com' },
+  { name: 'Bloomberg', detail: 'data lakehouse stuff', url: 'https://www.bloomberg.com' },
+  { name: 'Snapchat', detail: 'internship', url: 'https://www.snap.com' },
+  { name: 'Amazon', detail: '2x · Alexa C++ SDK + AWS', url: 'https://aws.amazon.com' },
+  { name: 'DRW Trading', detail: 'internship', url: 'https://drw.com' },
+  { name: 'SAP', detail: 'internship', url: 'https://www.sap.com' },
 ];
 ---
 <Layout>
@@ -14,23 +15,23 @@ const stops = [
     <section class="masthead" aria-labelledby="name">
       <div class="masthead-meta"><span>software engineer</span><span>somewhere between systems &amp; side quests</span></div>
       <h1 id="name">kia jalali<span class="name-dot">.</span></h1>
-      <div class="under-name"><span>a small corner of the internet.</span><a href="mailto:kia.jjalali@gmail.com">say hey <span aria-hidden="true">↗</span></a></div>
+      <div class="under-name"><span>a small corner of the internet.</span><a href="mailto:kia.jjalali@gmail.com">say hey <Arrow /></a></div>
     </section>
     <div class="body-grid">
       <aside class="bio" aria-labelledby="bio-title">
         <h2 id="bio-title" class="small-label">a bit about me</h2>
         <p class="bio-lead">I like figuring out<br />how things <em>work.</em></p>
         <p>Mostly distributed systems, backend and infrastructure. I studied computer science at <a href="https://www.sfu.ca">Simon Fraser University</a>.</p>
-        <div class="off-clock"><span class="small-label">when the laptop's closed</span><p>Skiing (shoutout to whistler ifykyk), chess, and soccer.</p><svg class="doodle" viewBox="0 0 220 110" fill="none" aria-hidden="true"><path d="M8 91L71 18L99 53L123 28L207 92M52 40L71 51L82 32M99 53L113 69L123 58L140 70M8 98C55 92 130 103 210 97" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M174 19v15m-8-7h16" stroke="currentColor" stroke-width="2"/></svg></div>
+        <div class="off-clock"><span class="small-label">when the laptop's closed</span><p>Skiing (shoutout to whistler ifykyk), chess, and soccer.</p></div>
       </aside>
       <section class="work" aria-labelledby="work-title">
         <div class="work-heading"><h2 id="work-title" class="small-label">a few places along the way</h2><span class="small-label">01—06</span></div>
         <div class="work-list">
-          {stops.map((stop, index) => <a class:list={['work-row', { current: index === 0 }]} href={stop.url}><span class="row-index">0{index + 1}</span><span class="row-content"><span class="company">{stop.name}</span><span class="work-detail">{stop.detail}</span></span><span class="row-end">{index === 0 ? <span class="now-tag">now</span> : <span aria-hidden="true">↗</span>}</span></a>)}
+          {stops.map((stop, index) => <a class:list={['work-row', { current: index === 0 }]} href={stop.url}><span class="row-index">0{index + 1}</span><span class="row-content"><span class="company">{stop.name}</span><span class="work-detail">{stop.detail}</span></span><span class="row-end">{index === 0 ? <span class="now-tag">now</span> : <Arrow />}</span></a>)}
         </div>
-        <div class="work-note"><span>the longer version?</span><a href="/contact/">ask for my resume <span aria-hidden="true">↗</span></a></div>
+        <div class="work-note"><span>the longer version?</span><a href="/contact/">ask for my resume <Arrow /></a></div>
       </section>
     </div>
-    <section class="hello" aria-label="Get in touch"><div><p class="small-label">no contact form. just an email.</p><a class="hello-title" href="mailto:kia.jjalali@gmail.com">say hey<span aria-hidden="true">↗</span></a></div><a class="email-address" href="mailto:kia.jjalali@gmail.com">kia.jjalali@gmail.com</a></section>
+    <section class="hello" aria-label="Get in touch"><div><p class="small-label">no contact form. just an email.</p><a class="hello-title" href="mailto:kia.jjalali@gmail.com">say hey<Arrow /></a></div><a class="email-address" href="mailto:kia.jjalali@gmail.com">kia.jjalali@gmail.com</a></section>
   </main>
 </Layout>

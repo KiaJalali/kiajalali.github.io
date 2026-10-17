@@ -1,4 +1,5 @@
 ---
+import Arrow from "../components/Arrow.astro";
 import '../styles/global.css';
 const { title = 'Kia Jalali — Software Engineer at Google', description = 'Software engineer at Google. Previously worked on data lakehouse infrastructure at Bloomberg. Mostly into distributed systems, backend and infrastructure.' } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
@@ -31,12 +32,12 @@ const person = { '@context': 'https://schema.org', '@type': 'Person', name: 'Kia
         <a class="wordmark" href="/" aria-label="Kia Jalali, home">KJ<span class="wordmark-square" aria-hidden="true"></span></a>
         <nav aria-label="Main navigation">
           <a href="/contact/" aria-current={Astro.url.pathname === '/contact/' ? 'page' : undefined}>resume</a>
-          <a href="https://www.linkedin.com/in/kiajalali" target="_blank" rel="noopener noreferrer">linkedin <span aria-hidden="true">↗</span></a>
-          <a href="https://github.com/KiaJalali" target="_blank" rel="noopener noreferrer">github <span aria-hidden="true">↗</span></a>
+          <a href="https://www.linkedin.com/in/kiajalali" target="_blank" rel="noopener noreferrer">linkedin <Arrow /></a>
+          <a href="https://github.com/KiaJalali" target="_blank" rel="noopener noreferrer">github <Arrow /></a>
         </nav>
       </header>
       <slot />
-      <footer><a href="/">kia jalali</a><span>that’s pretty much it.</span><a href="#main">back up ↑</a></footer>
+      <footer><a href="/">kia jalali</a><span>that’s pretty much it.</span><a href="#main">back up <Arrow direction="up" /></a></footer>
     </div>
   </body>
 </html>
