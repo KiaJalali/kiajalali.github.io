@@ -1,45 +1,36 @@
 ---
 import Layout from '../layouts/Layout.astro';
+const stops = [
+  { name: 'Google', detail: 'where i am now', label: 'now', url: 'https://www.google.com' },
+  { name: 'Bloomberg', detail: 'data lakehouse stuff', label: 'before', url: 'https://www.bloomberg.com' },
+  { name: 'Snapchat', detail: 'internship', label: 'before', url: 'https://www.snap.com' },
+  { name: 'Amazon', detail: '2x · Alexa C++ SDK + AWS', label: 'before', url: 'https://aws.amazon.com' },
+  { name: 'DRW Trading', detail: 'internship', label: 'before', url: 'https://drw.com' },
+  { name: 'SAP', detail: 'internship', label: 'before', url: 'https://www.sap.com' },
+];
 ---
 <Layout>
   <main id="main">
-    <section class="intro" aria-labelledby="intro-title">
-      <div class="intro-copy">
-        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> software engineer / currently at google</p>
-        <h1 id="intro-title">hey, i'm<br /><em>kia.</em><span class="title-star" aria-hidden="true">✳</span></h1>
-        <p class="intro-note">Mostly into distributed systems,<br class="desktop-break" /> backend and infrastructure.</p>
-        <a class="text-link intro-link" href="mailto:kia.jjalali@gmail.com">if you want to chat <span aria-hidden="true">↗</span></a>
-      </div>
-      <div class="terrain" aria-hidden="true">
-        <div class="terrain-label"><span>off the clock</span><span>on the mountain</span></div>
-        <svg viewBox="0 0 500 470" fill="none">
-          <defs>
-            <path id="contour" d="M247 70C303 48 326 108 358 133C394 161 451 181 431 233C415 278 423 321 376 342C329 364 308 415 254 394C201 375 183 410 143 365C104 322 53 301 74 248C92 203 64 169 111 137C157 108 184 94 247 70Z" />
-            <radialGradient id="glow"><stop stop-color="#d8e6ab" stop-opacity=".10"/><stop offset="1" stop-color="#d8e6ab" stop-opacity="0"/></radialGradient>
-          </defs>
-          <circle cx="250" cy="240" r="220" fill="url(#glow)" />
-          <g stroke="currentColor" stroke-width=".8">
-            {Array.from({length: 13}, (_, i) => <use href="#contour" transform={`translate(250 240) scale(${1.24 - i * .078}) translate(-250 -240)`} />)}
-          </g>
-          <path d="M94 353L171 290L204 303L270 194L326 161" stroke="#d8e6ab" stroke-width="1" stroke-dasharray="3 6" />
-          <circle cx="326" cy="161" r="4" fill="#d8e6ab" />
-          <circle cx="326" cy="161" r="12" stroke="#d8e6ab" stroke-opacity=".4" />
-          <path d="M25 30h16m-8-8v16M459 432h16m-8-8v16" stroke="currentColor" />
-        </svg>
-        <div class="terrain-caption"><span>a little less screen time.</span><span>↗</span></div>
-      </div>
+    <section class="masthead" aria-labelledby="name">
+      <div class="masthead-meta"><span>software engineer</span><span>somewhere between systems &amp; side quests</span></div>
+      <h1 id="name">kia jalali<span class="name-dot">.</span></h1>
+      <div class="under-name"><span>a small corner of the internet.</span><a href="mailto:kia.jjalali@gmail.com">say hey <span aria-hidden="true">↗</span></a></div>
     </section>
-    <section class="about section-row" aria-labelledby="about-title">
-      <h2 id="about-title" class="eyebrow section-label">a little context <span>01</span></h2>
-      <div class="prose">
-        <p>I'm at <a href="https://www.google.com">Google</a> now. Before that, I worked on data lakehouse stuff at <a href="https://www.bloomberg.com">Bloomberg</a>.</p>
-        <p>I studied computer science at <a href="https://www.sfu.ca">Simon Fraser University</a>. Along the way, I interned at <a href="https://www.snap.com">Snapchat</a>, 2x Amazon (<a href="https://github.com/alexa/avs-device-sdk">Alexa C++ SDK</a> and <a href="https://aws.amazon.com">AWS</a>), <a href="https://drw.com">DRW Trading</a>, and <a href="https://www.sap.com">SAP</a>.</p>
-      </div>
-    </section>
-    <section class="section-row outside" aria-labelledby="outside-title">
-      <h2 id="outside-title" class="eyebrow section-label">away from the keyboard <span>02</span></h2>
-      <div class="prose"><p>I like to ski (shoutout to whistler ifykyk), play chess, and soccer.</p><div class="interests" aria-hidden="true"><span>fresh snow</span><span>a good game</span><span>somewhere outside</span></div></div>
-    </section>
-    <section class="contact-strip" aria-label="Get in touch"><p>always down for a good conversation.</p><a class="text-link" href="mailto:kia.jjalali@gmail.com">kia.jjalali@gmail.com <span aria-hidden="true">↗</span></a></section>
+    <div class="body-grid">
+      <aside class="bio" aria-labelledby="bio-title">
+        <h2 id="bio-title" class="small-label">a bit about me</h2>
+        <p class="bio-lead">I like figuring out<br />how things <em>work.</em></p>
+        <p>Mostly distributed systems, backend and infrastructure. I studied computer science at <a href="https://www.sfu.ca">Simon Fraser University</a>.</p>
+        <div class="off-clock"><span class="small-label">when the laptop's closed</span><p>Skiing (shoutout to whistler ifykyk), chess, and soccer.</p><svg class="doodle" viewBox="0 0 220 110" fill="none" aria-hidden="true"><path d="M8 91L71 18L99 53L123 28L207 92M52 40L71 51L82 32M99 53L113 69L123 58L140 70M8 98C55 92 130 103 210 97" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M174 19v15m-8-7h16" stroke="currentColor" stroke-width="2"/></svg></div>
+      </aside>
+      <section class="work" aria-labelledby="work-title">
+        <div class="work-heading"><h2 id="work-title" class="small-label">a few places along the way</h2><span class="small-label">01—06</span></div>
+        <div class="work-list">
+          {stops.map((stop, index) => <a class:list={['work-row', { current: index === 0 }]} href={stop.url}><span class="row-index">0{index + 1}</span><span class="row-content"><span class="company">{stop.name}</span><span class="work-detail">{stop.detail}</span></span><span class="row-end">{index === 0 ? <span class="now-tag">now</span> : <span aria-hidden="true">↗</span>}</span></a>)}
+        </div>
+        <div class="work-note"><span>the longer version?</span><a href="/contact/">ask for my resume <span aria-hidden="true">↗</span></a></div>
+      </section>
+    </div>
+    <section class="hello" aria-label="Get in touch"><div><p class="small-label">no contact form. just an email.</p><a class="hello-title" href="mailto:kia.jjalali@gmail.com">say hey<span aria-hidden="true">↗</span></a></div><a class="email-address" href="mailto:kia.jjalali@gmail.com">kia.jjalali@gmail.com</a></section>
   </main>
 </Layout>

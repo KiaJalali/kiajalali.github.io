@@ -1,6 +1,6 @@
 # kiajalali.com
 
-A small static personal site, built with Astro. No client-side framework or JavaScript is shipped.
+A small static personal site with a paper-and-blue editorial layout, built with Astro. No client-side framework or JavaScript is shipped.
 
 ## Development
 
