@@ -10,7 +10,7 @@ const person = { '@context': 'https://schema.org', '@type': 'Person', name: 'Kia
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#151618" />
+    <meta name="theme-color" content="#ffffff" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -28,16 +28,20 @@ const person = { '@context': 'https://schema.org', '@type': 'Person', name: 'Kia
   <body>
     <a class="skip-link" href="#main">skip to content</a>
     <div class="shell">
-      <header><div class="header-inner">
-        <a class="wordmark" href="/" aria-label="Kia Jalali, home">kj</a>
+      <header>
+        <div class="site-name"><a href="/">kia jalali</a><span class="site-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span></div>
         <nav aria-label="Main navigation">
-          <a href="/contact/" aria-current={Astro.url.pathname === '/contact/' ? 'page' : undefined}>Resume</a>
-          <a href="https://www.linkedin.com/in/kiajalali" target="_blank" rel="noopener noreferrer">LinkedIn <Arrow /></a>
-          <a href="https://github.com/KiaJalali" target="_blank" rel="noopener noreferrer">GitHub <Arrow /></a>
-        </nav></div>
+          <a href="/" aria-current={Astro.url.pathname === '/' ? 'page' : undefined}>index</a>
+          <span aria-hidden="true">/</span>
+          <a href="/contact/" aria-current={Astro.url.pathname === '/contact/' ? 'page' : undefined}>resume</a>
+          <span aria-hidden="true">/</span>
+          <a href="https://www.linkedin.com/in/kiajalali" target="_blank" rel="noopener noreferrer">linkedin</a>
+          <span aria-hidden="true">/</span>
+          <a href="https://github.com/KiaJalali" target="_blank" rel="noopener noreferrer">github</a>
+        </nav>
       </header>
       <slot />
-      <footer><div class="footer-inner"><span>Kia Jalali</span><a href="#main" aria-label="Back to top"><Arrow direction="up" /></a></div></footer>
+      <footer><span>kiajalali.com</span><a href="#main" aria-label="Back to top"><Arrow direction="up" /></a></footer>
     </div>
   </body>
 </html>

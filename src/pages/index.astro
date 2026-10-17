@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Arrow from '../components/Arrow.astro';
 const experience = [
   { company: 'Google', team: 'YouTube · Creator Studio', note: '', role: 'Current', url: 'https://www.google.com' },
   { company: 'Bloomberg', team: 'Core Data', note: 'Data lakehouse infrastructure.', role: 'Previous', url: 'https://www.bloomberg.com' },
@@ -12,24 +11,18 @@ const experience = [
 ---
 <Layout>
   <main id="main">
-    <section class="hero" aria-labelledby="name">
-      <div class="hero-inner">
-        <div class="identity"><p class="eyebrow">Software engineer</p><h1 id="name">Kia<br />Jalali<span class="name-period">.</span></h1></div>
-        <div class="hero-copy"><p>I'm currently a software engineer at Google, working on YouTube Creator Studio.</p><a href="mailto:kia.jjalali@gmail.com" class="hero-contact">Get in touch <Arrow /></a></div>
+    <h1 class="sr-only">Kia Jalali</h1>
+    <section class="intro" aria-label="About Kia">
+      <p>I'm currently at <a href="https://www.google.com">Google</a>, working on YouTube Creator Studio.</p>
+      <p>Before that, I worked on Bloomberg's data lakehouse with Iceberg, Trino, and Spark. I've also worked on ad attribution at Snap and research infrastructure at DRW.</p>
+      <p>I'm interested in storage, distributed systems, and performance engineering. I studied computer science at <a href="https://www.sfu.ca">SFU</a>.</p>
+    </section>
+    <section class="work" aria-labelledby="work-title">
+      <h2 id="work-title"><span aria-hidden="true">/</span> work</h2>
+      <div class="work-table">
+        {experience.map((item) => <article class:list={['work-row', { active: item.role === 'Current' }]}><div class="work-company"><a href={item.url}>{item.company}</a><span class="role">{item.role === 'Current' ? 'now' : item.role === 'Previous' ? 'prev' : item.role === 'Two internships' ? 'intern ×2' : 'intern'}</span></div><div class="work-detail"><span>{item.team}</span>{item.note && <span class="work-note">{item.note}</span>}</div></article>)}
       </div>
     </section>
-    <div class="content-shell">
-      <section class="about section-grid" aria-labelledby="about-title">
-        <h2 id="about-title" class="section-label">About</h2>
-        <div class="about-copy"><p>Before Google, I worked on Bloomberg's data lakehouse, building infrastructure for storing and querying datasets with Iceberg, Trino, and Spark. Earlier, I worked on ad attribution at Snap and research infrastructure at DRW.</p><p>My interests are mostly in storage, distributed systems, and performance engineering. I studied computer science at <a href="https://www.sfu.ca">Simon Fraser University</a>.</p></div>
-      </section>
-      <section class="experience section-grid" aria-labelledby="work-title">
-        <h2 id="work-title" class="section-label">Experience</h2>
-        <div class="experience-list">
-          {experience.map((item) => <article class="experience-row"><div class="company-line"><a class="company" href={item.url}>{item.company}</a><span class:list={['role', { current: item.role === 'Current' }]}>{item.role === 'Current' && <span class="status" aria-hidden="true" />}{item.role}</span></div><div class="team-block"><p class="team">{item.team}</p>{item.note && <p class="work-note">{item.note}</p>}</div></article>)}
-        </div>
-      </section>
-      <section class="contact-section section-grid" aria-labelledby="contact-title"><h2 id="contact-title" class="section-label">Contact</h2><a class="contact-email" href="mailto:kia.jjalali@gmail.com">kia.jjalali@gmail.com <Arrow /></a></section>
-    </div>
+    <p class="email-line">You can reach me at <a href="mailto:kia.jjalali@gmail.com">kia.jjalali@gmail.com</a>.</p>
   </main>
 </Layout>
