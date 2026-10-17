@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Arrow from '../components/Arrow.astro';
 const experience = [
   { company: 'Google', team: 'YouTube · Creator Studio', note: '', role: 'Current', url: 'https://www.google.com' },
   { company: 'Bloomberg', team: 'Core Data', note: 'Data lakehouse infrastructure.', role: 'Previous', url: 'https://www.bloomberg.com' },
@@ -10,25 +11,25 @@ const experience = [
 ];
 ---
 <Layout>
-  <main id="main" class="profile">
-    <div class="identity">
-      <h1>Kia Jalali</h1>
-      <p>Software engineer</p>
-      <a class="identity-email" href="mailto:kia.jjalali@gmail.com">Get in touch</a>
-    </div>
-    <div class="profile-content">
-      <section class="intro" aria-label="About">
-        <p>I'm currently a software engineer at Google, working on YouTube Creator Studio.</p>
-        <p>Before Google, I worked on Bloomberg's data lakehouse, building infrastructure for storing and querying datasets with Iceberg, Trino, and Spark. Earlier, I worked on ad attribution at Snap and research infrastructure at DRW.</p>
-        <p>My interests are mostly in storage, distributed systems, and performance engineering. I studied computer science at <a href="https://www.sfu.ca">Simon Fraser University</a>.</p>
+  <main id="main">
+    <section class="hero" aria-labelledby="name">
+      <div class="hero-inner">
+        <div class="identity"><p class="eyebrow">Software engineer</p><h1 id="name">Kia<br />Jalali<span class="name-period">.</span></h1></div>
+        <div class="hero-copy"><p>I'm currently a software engineer at Google, working on YouTube Creator Studio.</p><a href="mailto:kia.jjalali@gmail.com" class="hero-contact">Get in touch <Arrow /></a></div>
+      </div>
+    </section>
+    <div class="content-shell">
+      <section class="about section-grid" aria-labelledby="about-title">
+        <h2 id="about-title" class="section-label">About</h2>
+        <div class="about-copy"><p>Before Google, I worked on Bloomberg's data lakehouse, building infrastructure for storing and querying datasets with Iceberg, Trino, and Spark. Earlier, I worked on ad attribution at Snap and research infrastructure at DRW.</p><p>My interests are mostly in storage, distributed systems, and performance engineering. I studied computer science at <a href="https://www.sfu.ca">Simon Fraser University</a>.</p></div>
       </section>
-      <section class="experience" aria-labelledby="work-title">
-        <h2 id="work-title">Experience</h2>
+      <section class="experience section-grid" aria-labelledby="work-title">
+        <h2 id="work-title" class="section-label">Experience</h2>
         <div class="experience-list">
-          {experience.map((item) => <article class="experience-row"><div class="company-line"><a class="company" href={item.url}>{item.company}</a><span class:list={['role', { current: item.role === 'Current' }]}>{item.role === 'Current' && <span class="status" aria-hidden="true" />}{item.role}</span></div>{item.team && <p class="team">{item.team}</p>}{item.note && <p class="work-note">{item.note}</p>}</article>)}
+          {experience.map((item) => <article class="experience-row"><div class="company-line"><a class="company" href={item.url}>{item.company}</a><span class:list={['role', { current: item.role === 'Current' }]}>{item.role === 'Current' && <span class="status" aria-hidden="true" />}{item.role}</span></div><div class="team-block"><p class="team">{item.team}</p>{item.note && <p class="work-note">{item.note}</p>}</div></article>)}
         </div>
       </section>
-      <div class="contact-line"><a href="mailto:kia.jjalali@gmail.com">kia.jjalali@gmail.com</a></div>
+      <section class="contact-section section-grid" aria-labelledby="contact-title"><h2 id="contact-title" class="section-label">Contact</h2><a class="contact-email" href="mailto:kia.jjalali@gmail.com">kia.jjalali@gmail.com <Arrow /></a></section>
     </div>
   </main>
 </Layout>
