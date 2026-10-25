@@ -1,17 +1,17 @@
 ---
-import Arrow from "../components/Arrow.astro";
 import '../styles/global.css';
 import themeScript from '../scripts/theme.js?raw';
-const { title = 'Kia Jalali — Software Engineer at Google', description = 'Software engineer at Google. Previously worked on data lakehouse infrastructure at Bloomberg. Interested in storage, distributed systems, and performance engineering.' } = Astro.props;
+const { title = 'Kia Jalali', description = 'Software engineer at Google. Interested in storage, distributed systems, and performance engineering.' } = Astro.props;
+const home = Astro.url.pathname === '/';
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const person = { '@context': 'https://schema.org', '@type': 'Person', name: 'Kia Jalali', url: 'https://kiajalali.com', email: 'kia.jjalali@gmail.com', jobTitle: 'Software Engineer', worksFor: { '@type': 'Organization', name: 'Google' }, alumniOf: { '@type': 'EducationalOrganization', name: 'Simon Fraser University' }, sameAs: ['https://www.linkedin.com/in/kiajalali', 'https://github.com/KiaJalali'] };
 ---
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#121416" />
     <script is:inline set:html={themeScript} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
@@ -20,30 +20,56 @@ const person = { '@context': 'https://schema.org', '@type': 'Person', name: 'Kia
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonical} />
     <meta property="og:site_name" content="Kia Jalali" />
+    <meta property="og:url" content={canonical} />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <script type="application/ld+json" set:html={JSON.stringify(person)} />
   </head>
   <body>
-    <a class="skip-link" href="#main">skip to content</a>
+    <a class="skip-link" href="#main">Skip to content</a>
     <div class="shell">
       <header>
-        <div class="site-name"><a href="/">kia jalali</a><div class="header-tools"><button id="theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false" hidden><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true" fill="none"><circle cx="8" cy="8" r="5.5" stroke="currentColor"/><path d="M8 2.5a5.5 5.5 0 0 1 0 11Z" fill="currentColor"/></svg><span class="theme-label-light">light</span><span class="theme-label-dark">dark</span></button><span class="site-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span></div></div>
+        <div class="masthead">
+          <a class="site-name" href="/" aria-label="Kia Jalali, home">kia jalali<span class="name-period" aria-hidden="true">.</span></a>
+          <div class="header-tools">
+            <button id="theme-toggle" type="button" aria-label="Switch to light theme" hidden><svg class="theme-icon" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="5.5" stroke="currentColor"/><path d="M8 2.5a5.5 5.5 0 0 1 0 11Z" fill="currentColor"/></svg><span data-theme-label>Light</span></button>
+            <span class="site-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          </div>
+        </div>
         <nav aria-label="Main navigation">
-          <a href="/" aria-current={Astro.url.pathname === '/' ? 'page' : undefined}>index</a>
-          <span aria-hidden="true">/</span>
-          <a href="/contact/" aria-current={Astro.url.pathname === '/contact/' ? 'page' : undefined}>resume</a>
-          <span aria-hidden="true">/</span>
-          <a href="https://www.linkedin.com/in/kiajalali" target="_blank" rel="noopener noreferrer">linkedin</a>
-          <span aria-hidden="true">/</span>
-          <a href="https://github.com/KiaJalali" target="_blank" rel="noopener noreferrer">github</a>
+          <a href={home ? '#work' : '/#work'}>Work</a>
+          <a href="/contact/" aria-current={!home && Astro.url.pathname === '/contact/' ? 'page' : undefined}>Resume</a>
+          <a href="https://www.linkedin.com/in/kiajalali" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+          <a href="https://github.com/KiaJalali" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
         </nav>
       </header>
       <slot />
-      <footer><span>kiajalali.com</span><a href="#main" aria-label="Back to top"><Arrow direction="up" /></a></footer>
+      <footer><span>Kia Jalali</span><a href="#main">Back to top <span aria-hidden="true">↑</span></a></footer>
     </div>
+    <script>
+      const copyButton = document.querySelector('[data-copy-email]');
+      const copyLabel = document.querySelector('[data-copy-label]');
+      const copyStatus = document.querySelector('.copy-status');
+      if (copyButton instanceof HTMLButtonElement && navigator.clipboard?.writeText) {
+        copyButton.hidden = false;
+        let resetTimer: ReturnType<typeof setTimeout>;
+        copyButton.addEventListener('click', async () => {
+          clearTimeout(resetTimer);
+          try {
+            await navigator.clipboard.writeText('kia.jjalali@gmail.com');
+            if (copyLabel) copyLabel.textContent = 'Copied';
+            if (copyStatus) copyStatus.textContent = 'Email address copied to clipboard.';
+          } catch {
+            if (copyStatus) copyStatus.textContent = 'Copy was unavailable. Select the email address to copy it, or use the email link.';
+          }
+          resetTimer = setTimeout(() => {
+            if (copyLabel) copyLabel.textContent = 'Copy';
+            if (copyStatus) copyStatus.textContent = '';
+          }, 3500);
+        });
+      }
+    </script>
   </body>
 </html>

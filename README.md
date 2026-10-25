@@ -1,6 +1,6 @@
 # kiajalali.com
 
-A small static personal site with a compact, text-first personal homepage, built with Astro. No client-side framework is shipped. A small inline script applies the system theme before paint and remembers manual light/dark choices in localStorage. The site also follows system dark mode without JavaScript.
+A compact, text-first personal site built with Astro. It defaults to dark mode, remembers manual theme choices, and uses native disclosures for work details. Core content and disclosures work without JavaScript. The site ships no client-side framework, analytics, or remote fonts.
 
 ## Development
 
@@ -23,10 +23,11 @@ npm run deploy
 
 ## Editing
 
-- `src/pages/index.astro`: homepage
-- `src/pages/contact.astro`: resume request page (existing `/contact/` URL)
-- `src/layouts/Layout.astro`: shared navigation, footer, SEO
-- `src/styles/global.css`: responsive styles
-- `public/`: domain config, sitemap, robots and favicon
+- `src/pages/index.astro`: introduction, work details, and email contact.
+- `src/pages/contact.astro`: resume request page at the existing `/contact/` URL.
+- `src/layouts/Layout.astro`: navigation, metadata, clipboard interaction, and footer.
+- `src/styles/global.css`: responsive layout and themes.
+- `src/scripts/theme.js`: theme selection before first paint and persistence.
+- `public/`: domain configuration, sitemap, robots, and favicon.
 
-The resume link intentionally opens the email request page; there is no public resume PDF in this repository.
+The resume link opens the email request page; there is no public resume PDF in this repository.

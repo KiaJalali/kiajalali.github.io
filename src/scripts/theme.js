@@ -1,37 +1,36 @@
 (() => {
   const key = 'kia-theme';
   const root = document.documentElement;
-  const system = window.matchMedia('(prefers-color-scheme: dark)');
   const valid = (value) => value === 'light' || value === 'dark';
-  let preference = null;
-  try { const stored = localStorage.getItem(key); if (valid(stored)) preference = stored; } catch {}
+  let theme = 'dark';
+  try { const stored = localStorage.getItem(key); if (valid(stored)) theme = stored; } catch {}
 
   function apply() {
-    const theme = preference || (system.matches ? 'dark' : 'light');
     root.dataset.theme = theme;
     const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.content = theme === 'dark' ? '#111318' : '#ffffff';
+    if (meta) meta.content = theme === 'dark' ? '#121416' : '#fafaf8';
     const button = document.querySelector('#theme-toggle');
     if (button) {
       button.hidden = false;
-      button.setAttribute('aria-pressed', String(theme === 'dark'));
+      const next = theme === 'dark' ? 'light' : 'dark';
+      button.setAttribute('aria-label', 'Switch to ' + next + ' theme');
+      const label = button.querySelector('[data-theme-label]');
+      if (label) label.textContent = next === 'light' ? 'Light' : 'Dark';
     }
   }
 
-  // Apply before the page paints to avoid a flash of the wrong theme.
   apply();
   document.addEventListener('DOMContentLoaded', () => {
     apply();
     document.querySelector('#theme-toggle')?.addEventListener('click', () => {
-      preference = root.dataset.theme === 'dark' ? 'light' : 'dark';
-      try { localStorage.setItem(key, preference); } catch {}
+      theme = theme === 'dark' ? 'light' : 'dark';
+      try { localStorage.setItem(key, theme); } catch {}
       apply();
     });
   }, { once: true });
-  system.addEventListener('change', () => { if (!preference) apply(); });
   window.addEventListener('storage', (event) => {
     if (event.key === key || event.key === null) {
-      preference = valid(event.newValue) ? event.newValue : null;
+      theme = valid(event.newValue) ? event.newValue : 'dark';
       apply();
     }
   });
