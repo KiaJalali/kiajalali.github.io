@@ -1,73 +1,132 @@
 ---
 import Layout from '../layouts/Layout.astro';
-const experience = [
-  {
-    company: 'Google', team: 'YouTube · Trust & Safety', role: 'Current',
-    description: 'I work on YouTube Trust & Safety, across product engineering and infrastructure.',
-    focus: ['Product engineering', 'Infrastructure'], url: 'https://www.youtube.com/',
-  },
-  {
-    company: 'Bloomberg', team: 'Core Data', role: 'Previous',
-    description: 'I worked on data lakehouse infrastructure, bringing datasets into a shared platform built with Iceberg, Trino, Spark, and S3.',
-    focus: ['Data systems', 'Lakehouse infrastructure'], url: 'https://www.bloomberg.com/company/',
-  },
-  {
-    company: 'Snap', team: 'Monetization · Ad Attribution', role: 'Internship',
-    description: 'I worked on ad attribution infrastructure, including the move from Dataflow to Flink on Kubernetes for event-time stream processing.',
-    focus: ['Stream processing', 'Flink'], url: 'https://www.snap.com/',
-  },
-  {
-    company: 'Amazon', team: 'Alexa C++ SDK / AWS', role: 'Two internships',
-    description: 'I completed two software engineering internships at Amazon, working across Alexa and AWS.',
-    focus: ['C++', 'Cloud infrastructure'], url: 'https://aws.amazon.com/',
-  },
-  {
-    company: 'DRW', team: 'Event Driven Trading · R&D', role: 'Internship',
-    description: 'I worked on research infrastructure, including parallel data loading and distributed checkpointing for GPU training on Lustre.',
-    focus: ['C++', 'Performance engineering'], url: 'https://drw.com/',
-  },
-  {
-    company: 'SAP', team: 'Internal Tooling', role: 'Internship',
-    description: 'I worked on internal tooling during a software engineering internship at SAP.',
-    focus: ['Developer tooling'], url: 'https://www.sap.com/',
-  },
+const jobs = [
+  ['Google', 'YouTube · Trust & Safety', 'now', 'Building product and infrastructure systems for YouTube Trust & Safety.'],
+  ['Bloomberg', 'Core Data', '2026', 'Built lakehouse infrastructure using Iceberg, Trino, Spark, and S3.'],
+  ['Snap', 'Ad Attribution', '2025', 'Worked on event-time streaming infrastructure with Flink and Kubernetes.'],
+  ['DRW', 'Research Infrastructure', '2024', 'Built C++ data loading and distributed GPU checkpointing infrastructure.'],
+  ['Amazon', 'Alexa / AWS', 'intern ×2', 'Software engineering internships across Alexa and AWS.'],
+  ['SAP', 'Internal Tooling', 'intern', 'Built internal developer tooling.']
 ];
 ---
-<Layout>
-  <main id="main" tabindex="-1">
-    <section class="intro" aria-labelledby="intro-title">
-      <h1 id="intro-title">I'm currently a software engineer at <a href="https://www.google.com/">Google</a>, working on YouTube Trust &amp; Safety.</h1>
-      <p>Before that, I worked on Bloomberg's data lakehouse with Iceberg, Trino, and Spark. I've also worked on ad attribution at Snap and research infrastructure at DRW.</p>
-      <p>I'm interested in storage, distributed systems, and performance engineering. I studied computer science at <a href="https://www.sfu.ca/">SFU</a>.</p>
+<Layout title="Kia Jalali — Software Engineer">
+  <main id="main" class="terminal-home">
+    <div class="identity-bar"><span>Kia Jalali</span><span class="identity-mark" aria-hidden="true">▦</span></div>
+    <section class="art-section" aria-label="Interactive generative terminal artwork">
+      <canvas id="system-art" aria-label="An animated abstract network of data packets and processing nodes"></canvas>
+      <div class="art-meta"><span>FIG. 01 / SIGNAL FIELD</span><button id="art-toggle" type="button" aria-pressed="false">pause [ II ]</button></div>
     </section>
-
-    <section id="work" class="work" aria-labelledby="work-title">
-      <div class="section-heading"><h2 id="work-title"><span aria-hidden="true">/</span> Work</h2><span class="section-note">Select a role to read more</span></div>
-      <div class="work-list">
-        {experience.map((item) => (
-          <details class="work-item" name="experience">
-            <summary>
-              <span class="work-company">{item.company}<span class:list={['role', { current: item.role === 'Current' }]}>{item.role === 'Current' ? 'now' : item.role === 'Previous' ? 'prev' : item.role === 'Two internships' ? 'intern ×2' : 'intern'}</span></span>
-              <span class="work-team">{item.team}</span>
-              <svg class="disclosure" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="m3 4.5 3 3 3-3" stroke="currentColor" stroke-width="1.2" /></svg>
-            </summary>
-            <div class="work-body">
-              <p>{item.description}</p>
-              <div class="work-meta"><span>{item.focus.join(' / ')}</span><a href={item.url} target="_blank" rel="noopener noreferrer">{item.company} <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></div>
-            </div>
-          </details>
-        ))}
-      </div>
+    <section class="terminal-copy">
+      <p class="epigraph">small systems, large consequences<span class="cursor" aria-hidden="true">█</span></p>
+      <h1>Hi, I'm Kia.</h1>
+      <p>I'm a software engineer at <a href="https://www.google.com/">Google</a>, working on YouTube Trust &amp; Safety.</p>
+      <p>Previously, I worked on data infrastructure at <a href="https://www.bloomberg.com/company/">Bloomberg</a>, stream processing at <a href="https://www.snap.com/">Snap</a>, and research systems at <a href="https://drw.com/">DRW</a>.</p>
+      <p>I'm interested in storage, distributed systems, and performance engineering. I studied computer science at <a href="https://www.sfu.ca/">Simon Fraser University</a>.</p>
+      <div class="socials"><a href="https://github.com/KiaJalali">github</a><span>/</span><a href="https://www.linkedin.com/in/kiajalali">linkedin</a><span>/</span><a href="mailto:kia.jjalali@gmail.com">email</a><span>/</span><a href="/contact/">resume</a></div>
     </section>
-
-    <section class="contact-section" id="contact" aria-labelledby="contact-title">
-      <h2 id="contact-title"><span aria-hidden="true">/</span> Contact</h2>
-      <p>The easiest way to reach me is by email.</p>
-      <div class="contact-line">
-        <a class="email-link" href="mailto:kia.jjalali@gmail.com">kia.jjalali@gmail.com <span aria-hidden="true">↗</span></a>
-        <button class="copy-button" type="button" data-copy-email hidden aria-label="Copy email address"><svg viewBox="0 0 16 16" width="14" height="14" fill="none" aria-hidden="true"><rect x="5.5" y="5.5" width="7" height="8" rx="1.5" stroke="currentColor"/><path d="M9.5 5.5v-2A1.5 1.5 0 0 0 8 2H3.5A1.5 1.5 0 0 0 2 3.5v5A1.5 1.5 0 0 0 3.5 10H5" stroke="currentColor"/></svg><span data-copy-label>Copy</span></button>
-      </div>
-      <p class="copy-status sr-only" role="status" aria-live="polite"></p>
+    <section class="terminal-work" id="work">
+      <div class="section-head"><span>SELECTED EXPERIENCE</span><span>01 — 06</span></div>
+      {jobs.map(([company,team,date,description],i) => <details class="terminal-job"><summary><span class="job-number">{String(i+1).padStart(2,'0')}</span><span class="job-name">{company}</span><span class="job-date">{date}</span><span class="job-plus">+</span></summary><div class="job-detail"><span>{team}</span><p>{description}</p></div></details>)}
     </section>
+    <div class="terminal-end">end of transmission <span>_</span></div>
   </main>
+  <script>
+    const canvas = document.querySelector('#system-art');
+    const toggle = document.querySelector('#art-toggle');
+    if (canvas instanceof HTMLCanvasElement) {
+      const ctx = canvas.getContext('2d');
+      let running = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let frame = 0, raf = 0, width = 0, height = 0;
+      const palette = ['#373a38','#5c605c','#b0aea6','#d5c8aa','#c16c4c','#e29465'];
+      const resize = () => {
+        const rect = canvas.getBoundingClientRect();
+        const dpr = Math.min(devicePixelRatio || 1, 2);
+        width = rect.width; height = rect.height;
+        canvas.width = Math.round(width*dpr); canvas.height = Math.round(height*dpr);
+        ctx?.setTransform(dpr,0,0,dpr,0,0);
+        draw();
+      };
+      const hash = (x,y) => { let n = Math.sin(x*127.1+y*311.7)*43758.5453; return n-Math.floor(n); };
+      function draw() {
+        if (!ctx) return;
+        ctx.clearRect(0,0,width,height);
+        const cell = Math.max(8,Math.min(15,width/48));
+        const cols = Math.floor(width/cell), rows = Math.floor(height/cell);
+        const ox = (width-cols*cell)/2, oy = (height-rows*cell)/2;
+        const t = frame*.012;
+        for(let y=0;y<rows;y++) for(let x=0;x<cols;x++){
+          const nx=(x-cols*.5)/cols, ny=(y-rows*.5)/rows;
+          const wave = Math.sin(nx*13 + t*.55)*.13 + Math.sin(nx*24-ny*10-t*.3)*.045;
+          const lane = Math.abs(ny-wave);
+          const nodeA = Math.hypot(nx+.31,ny+.14), nodeB=Math.hypot(nx-.29,ny-.1);
+          const node = Math.min(nodeA,nodeB);
+          const density = hash(x,y);
+          const active = lane<.085 || (node<.14 && density>.24);
+          if(!active && !(density>.995)) continue;
+          const packet = Math.sin(x*.48-y*.25-t*2.2);
+          const bright = active && (packet>.64 || node<.06);
+          const index = bright ? (density>.5?5:4) : lane<.045 ? 2 : node<.1?1:0;
+          ctx.fillStyle=palette[index];
+          ctx.globalAlpha=active ? (.32+density*.65) : .12;
+          ctx.fillRect(ox+x*cell+1,oy+y*cell+1,cell-2,cell-2);
+          if(bright && density>.72 && cell>10) {
+            ctx.fillStyle='#191a18';ctx.font=`${Math.round(cell*.64)}px monospace`;
+            ctx.fillText('01+*'[Math.floor(density*100)%4],ox+x*cell+cell*.22,oy+y*cell+cell*.75);
+          }
+        }
+        ctx.globalAlpha=1;
+      }
+      const tick=()=>{if(!running)return;frame++;draw();raf=requestAnimationFrame(tick);};
+      toggle?.addEventListener('click',()=>{
+        running=!running;
+        toggle.textContent=running?'pause [ II ]':'play [ > ]';
+        toggle.setAttribute('aria-pressed',String(!running));
+        if(running) tick();else cancelAnimationFrame(raf);
+      });
+      window.addEventListener('resize',resize,{passive:true});
+      resize();if(running)tick();
+    }
+  </script>
+  <style>
+    :global(:root){--bg:#171816;--text:#e8e6df;--title:#f2f0e9;--muted:#aaa8a0;--faint:#777870;--blue:#df9a73;--line:#343630;--hover:#252722;--dot:#171816;--mono:'SFMono-Regular',Consolas,'Liberation Mono',monospace}
+    :global(:root[data-theme='light']){--bg:#f4f2eb;--text:#292b28;--title:#181a18;--muted:#5f625c;--faint:#747870;--blue:#a94c2b;--line:#d1d0c8;--hover:#eae8df;--dot:#f4f2eb}
+    :global(body::before){display:none}
+    :global(.shell){width:min(100% - 72px,850px);margin:38px auto 0;box-shadow:none}
+    :global(header){display:none}
+    :global(footer){font-family:var(--mono);border-color:var(--line);margin-top:65px}
+    .terminal-home{font-family:var(--mono);letter-spacing:-.045em}
+    .identity-bar{height:76px;border-radius:999px;background:#272925;color:#f0eee8;padding:0 30px 0 36px;display:flex;align-items:center;justify-content:space-between;font-size:22px;letter-spacing:-.055em}
+    .identity-mark{font-size:24px;letter-spacing:0;color:#9b9c94}
+    .art-section{position:relative;margin:24px 0 64px}
+    #system-art{display:block;width:100%;height:380px}
+    .art-meta{display:flex;justify-content:space-between;align-items:center;font-size:10px;letter-spacing:.12em;color:var(--faint);padding:0 6px}
+    .art-meta button{border:0;background:none;color:var(--muted);font:inherit;cursor:pointer;padding:12px}
+    .terminal-copy{max-width:760px;padding:0 22px}
+    .terminal-copy .epigraph{color:var(--muted);font-size:clamp(14px,2.4vw,20px);margin-bottom:48px}
+    .cursor{color:var(--blue);margin-left:6px;animation:blink 1.2s steps(1) infinite}
+    @keyframes blink{50%{opacity:0}}
+    .terminal-copy h1,.terminal-copy p{font-size:clamp(19px,3.3vw,28px);font-weight:400;line-height:1.72;margin:0 0 25px;letter-spacing:-.055em}
+    .terminal-copy h1{color:var(--title);margin-bottom:28px}
+    .terminal-copy p{color:var(--text)}
+    .terminal-copy a{color:inherit;text-decoration:underline;text-decoration-color:#777970;text-underline-offset:5px}
+    .terminal-copy a:hover{color:var(--blue);text-decoration-color:var(--blue)}
+    .socials{display:flex;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:clamp(17px,2.8vw,24px);margin:44px 0 0}
+    .socials span{color:var(--faint)}
+    .terminal-work{margin:115px 22px 0}
+    .section-head{display:flex;justify-content:space-between;color:var(--faint);font-size:11px;letter-spacing:.1em;padding-bottom:18px;border-bottom:1px solid var(--line)}
+    .terminal-job{border-bottom:1px solid var(--line)}
+    .terminal-job summary{display:grid;grid-template-columns:45px 1fr auto 20px;gap:14px;align-items:center;list-style:none;padding:25px 0;cursor:pointer}
+    .terminal-job summary::-webkit-details-marker{display:none}
+    .job-number,.job-date,.job-plus{font-size:12px;color:var(--faint)}
+    .job-name{font-size:clamp(19px,3vw,26px);color:var(--title)}
+    .job-plus{font-size:20px;text-align:right}
+    .terminal-job[open] .job-plus{transform:rotate(45deg)}
+    .job-detail{padding:0 0 25px 59px;max-width:610px;color:var(--muted);font-size:14px;line-height:1.8}
+    .job-detail span{color:var(--blue)}
+    .job-detail p{margin:10px 0 0}
+    .terminal-end{margin:90px 22px 0;color:var(--faint);font-size:12px}
+    .terminal-end span{color:var(--blue)}
+    @media(max-width:600px){:global(.shell){width:calc(100% - 34px);margin-top:20px}.identity-bar{height:65px;padding:0 23px;font-size:20px}.art-section{margin:18px 0 48px}#system-art{height:280px}.terminal-copy{padding:0 8px}.terminal-copy .epigraph{margin-bottom:42px}.terminal-copy p,.terminal-copy h1{margin-bottom:23px}.socials{gap:10px}.terminal-work{margin:85px 8px 0}.terminal-job summary{grid-template-columns:28px 1fr auto 16px;gap:9px}.job-detail{padding-left:37px}.terminal-end{margin-left:8px}}
+    @media(prefers-reduced-motion:reduce){.cursor{animation:none}}
+  </style>
 </Layout>
