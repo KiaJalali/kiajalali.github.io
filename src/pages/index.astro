@@ -1,73 +1,45 @@
 ---
-import Layout from '../layouts/Layout.astro';
-const experience = [
-  {
-    company: 'Google', team: 'YouTube · Trust & Safety', role: 'Current',
-    description: 'I work on YouTube Trust & Safety, across product engineering and infrastructure.',
-    focus: ['Product engineering', 'Infrastructure'], url: 'https://www.youtube.com/',
-  },
-  {
-    company: 'Bloomberg', team: 'Core Data', role: 'Previous',
-    description: 'I worked on data lakehouse infrastructure, bringing datasets into a shared platform built with Iceberg, Trino, Spark, and S3.',
-    focus: ['Data systems', 'Lakehouse infrastructure'], url: 'https://www.bloomberg.com/company/',
-  },
-  {
-    company: 'Snap', team: 'Monetization · Ad Attribution', role: 'Internship',
-    description: 'I worked on ad attribution infrastructure, including the move from Dataflow to Flink on Kubernetes for event-time stream processing.',
-    focus: ['Stream processing', 'Flink'], url: 'https://www.snap.com/',
-  },
-  {
-    company: 'Amazon', team: 'Alexa C++ SDK / AWS', role: 'Two internships',
-    description: 'I completed two software engineering internships at Amazon, working across Alexa and AWS.',
-    focus: ['C++', 'Cloud infrastructure'], url: 'https://aws.amazon.com/',
-  },
-  {
-    company: 'DRW', team: 'Event Driven Trading · R&D', role: 'Internship',
-    description: 'I worked on research infrastructure, including parallel data loading and distributed checkpointing for GPU training on Lustre.',
-    focus: ['C++', 'Performance engineering'], url: 'https://drw.com/',
-  },
-  {
-    company: 'SAP', team: 'Internal Tooling', role: 'Internship',
-    description: 'I worked on internal tooling during a software engineering internship at SAP.',
-    focus: ['Developer tooling'], url: 'https://www.sap.com/',
-  },
-];
+const title = 'Kia Jalali';
 ---
-<Layout>
-  <main id="main" tabindex="-1">
-    <section class="intro" aria-labelledby="intro-title">
-      <h1 id="intro-title">I'm currently a software engineer at <a href="https://www.google.com/">Google</a>, working on YouTube Trust &amp; Safety.</h1>
-      <p>Before that, I worked on Bloomberg's data lakehouse with Iceberg, Trino, and Spark. I've also worked on ad attribution at Snap and research infrastructure at DRW.</p>
-      <p>I'm interested in storage, distributed systems, and performance engineering. I studied computer science at <a href="https://www.sfu.ca/">SFU</a>.</p>
-    </section>
-
-    <section id="work" class="work" aria-labelledby="work-title">
-      <div class="section-heading"><h2 id="work-title"><span aria-hidden="true">/</span> Work</h2><span class="section-note">Select a role to read more</span></div>
-      <div class="work-list">
-        {experience.map((item) => (
-          <details class="work-item" name="experience">
-            <summary>
-              <span class="work-company">{item.company}<span class:list={['role', { current: item.role === 'Current' }]}>{item.role === 'Current' ? 'now' : item.role === 'Previous' ? 'prev' : item.role === 'Two internships' ? 'intern ×2' : 'intern'}</span></span>
-              <span class="work-team">{item.team}</span>
-              <svg class="disclosure" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="m3 4.5 3 3 3-3" stroke="currentColor" stroke-width="1.2" /></svg>
-            </summary>
-            <div class="work-body">
-              <p>{item.description}</p>
-              <div class="work-meta"><span>{item.focus.join(' / ')}</span><a href={item.url} target="_blank" rel="noopener noreferrer">{item.company} <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></div>
-            </div>
-          </details>
-        ))}
-      </div>
-    </section>
-
-    <section class="contact-section" id="contact" aria-labelledby="contact-title">
-      <h2 id="contact-title"><span aria-hidden="true">/</span> Contact</h2>
-      <p>The easiest way to reach me is by email.</p>
-      <div class="contact-line">
-        <a class="email-link" href="mailto:kia.jjalali@gmail.com">kia.jjalali@gmail.com <span aria-hidden="true">↗</span></a>
-        <button class="copy-button" type="button" data-copy-email hidden aria-label="Copy email address"><svg viewBox="0 0 16 16" width="14" height="14" fill="none" aria-hidden="true"><rect x="5.5" y="5.5" width="7" height="8" rx="1.5" stroke="currentColor"/><path d="M9.5 5.5v-2A1.5 1.5 0 0 0 8 2H3.5A1.5 1.5 0 0 0 2 3.5v5A1.5 1.5 0 0 0 3.5 10H5" stroke="currentColor"/></svg><span data-copy-label>Copy</span></button>
-      </div>
-      <p class="copy-status sr-only" role="status" aria-live="polite"></p>
-    </section>
-  </main>
-</Layout>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Kia Jalali — software engineer interested in storage, distributed systems, and performance engineering." />
+<title>{title}</title>
+<link rel="icon" href="/favicon.svg" />
+<style>
+:root{color-scheme:light;font-family:Arial,Helvetica,sans-serif;color:#202020;background:#fff}
+*{box-sizing:border-box}body{margin:0}main{max-width:690px;margin:86px auto 90px;padding:0 25px}
+h1{font-size:28px;letter-spacing:-.6px;font-weight:600;margin:0 0 8px}
+.subtitle{font-size:14px;color:#666;margin:0 0 30px}
+p{font-size:15px;line-height:1.75;margin:0 0 16px}
+a{color:#174ea6;text-decoration:none}a:hover{text-decoration:underline}
+.links{display:flex;flex-wrap:wrap;gap:17px;margin:24px 0 47px;font-size:14px}
+h2{font-size:16px;font-weight:600;margin:42px 0 15px}
+ul{padding-left:19px;margin:0}li{font-size:14px;line-height:1.75;margin:0 0 8px}
+li span{color:#666}
+footer{font-size:12px;color:#888;margin-top:60px}
+@media(max-width:600px){main{margin:48px auto 60px;padding:0 23px}h1{font-size:26px}}
+</style>
+</head>
+<body><main>
+<h1>Kia Jalali</h1>
+<div class="subtitle">Software Engineer · Google</div>
+<p>I'm a software engineer at Google, working on YouTube. My interests are in storage systems, distributed systems, and performance engineering.</p>
+<p>Previously, I worked on infrastructure at Bloomberg, Snap, and DRW, and interned at Amazon and SAP. I studied computer science at Simon Fraser University.</p>
+<div class="links"><a href="mailto:kia.jjalali@gmail.com">Email</a><a href="https://github.com/KiaJalali">GitHub</a><a href="https://www.linkedin.com/in/kiajalali">LinkedIn</a><a href="/contact/">Résumé</a></div>
+<h2>Experience</h2>
+<ul>
+<li><strong>Google</strong> <span>— YouTube, 2026–present</span></li>
+<li><strong>Bloomberg</strong> <span>— Core Data, 2026</span></li>
+<li><strong>Snap</strong> <span>— Ad Attribution, 2025</span></li>
+<li><strong>DRW</strong> <span>— Research Infrastructure, 2024</span></li>
+<li><strong>Amazon</strong> <span>— Alexa / AWS, internships</span></li>
+<li><strong>SAP</strong> <span>— Software Engineering, internship</span></li>
+</ul>
+<h2>Interests</h2>
+<p>Storage engines, distributed databases, stream processing, and low-level systems.</p>
+<footer>Last updated October 2026</footer>
+</main></body></html>
